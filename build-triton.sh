@@ -3,8 +3,8 @@ ROOT_DIR=/home/ubuntu/Triton
 # build Triton
 cd $ROOT_DIR
 # get pin
-wget http://software.intel.com/sites/landingpage/pintool/downloads/pin-2.14-71313-gcc.4.4.7-linux.tar.gz
-tar xf pin-2.14-71313-gcc.4.4.7-linux.tar.gz
+# wget http://software.intel.com/sites/landingpage/pintool/downloads/pin-2.14-71313-gcc.4.4.7-linux.tar.gz
+tar xf /tmp/pin-2.14-71313-gcc.4.4.7-linux.tar.gz
 cd pin-2.14-71313-gcc.4.4.7-linux/source/tools/
 
 git clone https://github.com/JonathanSalwan/Triton.git

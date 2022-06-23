@@ -29,5 +29,7 @@ RUN git config --global http.proxy socks5://202.112.50.114:10808
 COPY --chown=ubuntu:ubuntu build-deps.sh .
 RUN chmod +x build-deps.sh && ./build-deps.sh
 
+COPY --chown=ubuntu:ubuntu pin-2.14-71313-gcc.4.4.7-linux.tar.gz /tmp
 COPY --chown=ubuntu:ubuntu build-triton.sh .
 RUN chmod +x build-triton.sh && ./build-triton.sh
+RUN rm /tmp/pin-2.14-71313-gcc.4.4.7-linux.tar.gz
