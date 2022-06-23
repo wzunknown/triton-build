@@ -22,5 +22,12 @@ RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/nul
 RUN sudo add-apt-repository -y ppa:mhier/libboost-latest && \
     sudo apt-get update && sudo apt -y install libboost1.68-dev
 
-COPY --chown=ubuntu:ubuntu build.sh .
-RUN chmod +x build.sh && ./build.sh
+RUN mkdir /home/ubuntu/Triton
+RUN git config --global http.proxy socks5://202.112.50.114:10808
+# build libz3 libcapstone
+# libz3 is very slow
+COPY --chown=ubuntu:ubuntu build-deps.sh .
+RUN chmod +x build-deps.sh && ./build-deps.sh
+
+COPY --chown=ubuntu:ubuntu build-triton.sh .
+RUN chmod +x build-triton.sh && ./build-triton.sh
