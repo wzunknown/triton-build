@@ -18,4 +18,4 @@ sed -i '/PYTHON_VERSION_STRING/,+2d' CMakeLists.txt
 mkdir build && cd build
 cmake -DPINTOOL=on -DKERNEL4=on -DARCHITECTURE="amd64" -DPYTHON_BINDINGS=ON -DPYTHON_AUTOCOMPLETE=ON ..
 make -j8
-ln -s triton $ROOT_DIR/triton
+ln -s `pwd`/triton $ROOT_DIR/triton
